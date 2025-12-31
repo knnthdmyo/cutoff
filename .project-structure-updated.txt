@@ -1,0 +1,170 @@
+# Updated Project Structure (v1.0.6)
+
+```
+finbro/
+├── app/
+│   ├── auth/
+│   │   ├── login/
+│   │   │   └── page.tsx
+│   │   ├── signup/
+│   │   │   └── page.tsx
+│   │   └── signout/
+│   │       └── page.tsx
+│   ├── dashboard/
+│   │   └── page.tsx              # ✨ Updated: Added tracker button
+│   ├── expenses/
+│   │   ├── page.tsx              # ✨ Updated: Added tracker button
+│   │   └── tracker/              # 🆕 NEW: Payment tracker
+│   │       └── page.tsx          # Bill payment checklist
+│   ├── goals/
+│   │   └── page.tsx
+│   ├── income/
+│   │   └── page.tsx
+│   ├── recommendations/
+│   │   └── page.tsx
+│   ├── setup/
+│   │   └── page.tsx
+│   ├── what-if/
+│   │   └── page.tsx
+│   ├── globals.css
+│   ├── layout.tsx
+│   └── page.tsx
+│
+├── components/
+│   └── ui/
+│       ├── Button.tsx
+│       ├── Card.tsx
+│       └── Input.tsx
+│
+├── lib/
+│   ├── auth.ts
+│   ├── currency.ts
+│   ├── forecast.ts
+│   ├── payday.ts
+│   ├── recommendations.ts
+│   ├── supabase.ts
+│   └── supabase-server.ts
+│
+├── types/
+│   └── database.ts               # ✨ Updated: Added expense_payments
+│
+├── supabase-schema.sql
+├── supabase-payments-schema.sql  # 🆕 NEW: Payment tracking schema
+│
+├── README.md                     # ✨ Updated: Added tracker feature
+├── CHANGELOG.md                  # ✨ Updated: v1.0.6
+├── ARCHITECTURE.md
+├── BUILD_SUMMARY.md
+├── DEPLOYMENT.md
+├── QUICKSTART.md
+│
+├── AUTH_FIX.md
+├── EXPENSES_FEATURE.md
+├── INCOME_FEATURE.md
+├── INCOME_SUMMARY.md
+├── RECOMMENDATIONS_FEATURE.md
+├── RECOMMENDATIONS_SUMMARY.md
+├── GOALS_ENHANCEMENT.md
+├── GOALS_SUMMARY.md
+├── DASHBOARD_GOALS.md
+├── SIGNOUT_FIX.md
+│
+├── PAYMENT_TRACKER.md            # 🆕 NEW: Full documentation
+├── PAYMENT_TRACKER_SUMMARY.md    # 🆕 NEW: Quick reference
+├── SETUP_PAYMENT_TRACKER.md      # 🆕 NEW: Setup guide
+│
+├── package.json
+├── tsconfig.json
+├── tailwind.config.ts
+├── postcss.config.mjs
+├── next.config.js
+├── .gitignore
+└── .env.local
+```
+
+## What's New in v1.0.6
+
+### 🆕 New Features
+- **Bill Payment Tracker** - Monthly checklist for fixed expenses
+  - Check off bills as you pay them
+  - Track actual amount paid
+  - Record payment dates
+  - Add confirmation notes
+  - Navigate between months
+  - See paid vs unpaid totals
+
+### 📝 New Files (5)
+1. `app/expenses/tracker/page.tsx` - Payment tracker UI (430 lines)
+2. `supabase-payments-schema.sql` - Database migration
+3. `PAYMENT_TRACKER.md` - Full documentation (436 lines)
+4. `PAYMENT_TRACKER_SUMMARY.md` - Quick reference
+5. `SETUP_PAYMENT_TRACKER.md` - Setup instructions
+
+### ✨ Modified Files (5)
+1. `app/dashboard/page.tsx` - Added "Track Bill Payments" button
+2. `app/expenses/page.tsx` - Added "Track Payments" button in header
+3. `types/database.ts` - Added expense_payments table types
+4. `README.md` - Updated feature list
+5. `CHANGELOG.md` - Version 1.0.6 entry
+
+### 🗄️ Database Changes
+- New table: `expense_payments`
+- Fields: expense_id, month, year, paid_date, actual_amount, notes
+- RLS policies for user isolation
+- Indexes for performance
+- Unique constraint per expense per month
+
+## Feature Comparison
+
+| Feature | Page | Status |
+|---------|------|--------|
+| Authentication | `/auth/login` | ✅ Working |
+| Dashboard | `/dashboard` | ✅ Enhanced |
+| Setup | `/setup` | ✅ Working |
+| Expenses | `/expenses` | ✅ Enhanced |
+| **Payment Tracker** | `/expenses/tracker` | 🆕 **NEW** |
+| Income/Balance | `/income` | ✅ Working |
+| Recommendations | `/recommendations` | ✅ Working |
+| Goals | `/goals` | ✅ Working |
+| What-If | `/what-if` | ✅ Working |
+
+## Quick Access
+
+### From Dashboard
+6 quick action buttons:
+1. 💡 Get Recommendations
+2. ✅ **Track Bill Payments** ← NEW!
+3. Edit Income & Balance
+4. Manage Expenses
+5. Run What-If Scenario
+6. View Goals
+
+### From Expenses
+Header buttons:
+- ← Expenses (back to dashboard)
+- ✅ **Track Payments** ← NEW!
+
+## Stats
+
+**Total Pages:** 10
+**Total Features:** 9
+**Database Tables:** 5
+**Documentation Files:** 18
+**Lines of Code:** ~4,500+
+
+## Version History
+
+- v1.0.0 - Initial MVP build
+- v1.0.1 - Auth fix (login issue)
+- v1.0.2 - Expense management
+- v1.0.3 - Income/salary editing
+- v1.0.4 - Financial recommendations
+- v1.0.5 - Goals enhancement
+- v1.0.6 - **Bill payment tracker** ← Current
+
+---
+
+**Latest Update:** Bill Payment Tracker  
+**Status:** ✅ Complete  
+**Date:** Jan 1, 2025
+

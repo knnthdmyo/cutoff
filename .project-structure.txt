@@ -1,0 +1,158 @@
+CUTOFF - Complete Project Structure
+===================================
+
+finbro/
+│
+├── 📄 README.md                    # Project overview & features
+├── 📄 ARCHITECTURE.md              # System design & philosophy
+├── 📄 DEPLOYMENT.md                # Production deployment guide
+├── 📄 QUICKSTART.md                # 5-minute local setup
+├── 📄 BUILD_SUMMARY.md             # What was built
+│
+├── 📄 package.json                 # Dependencies
+├── 📄 tsconfig.json                # TypeScript config
+├── 📄 tailwind.config.ts           # Tailwind config
+├── 📄 next.config.js               # Next.js config
+├── 📄 postcss.config.mjs           # PostCSS config
+├── 📄 middleware.ts                # Auth middleware
+│
+├── 🗄️ supabase-schema.sql          # Database schema (run in Supabase)
+│
+├── 📁 app/                         # Next.js App Router
+│   ├── 📄 layout.tsx               # Root layout
+│   ├── 📄 page.tsx                 # Home (redirects to dashboard)
+│   ├── 📄 globals.css              # Global styles
+│   │
+│   ├── 📁 auth/                    # Authentication pages
+│   │   ├── 📁 login/
+│   │   │   └── 📄 page.tsx         # Sign in page
+│   │   └── 📁 signup/
+│   │       └── 📄 page.tsx         # Sign up page
+│   │
+│   ├── 📁 setup/                   # Onboarding
+│   │   └── 📄 page.tsx             # 3-step setup flow
+│   │
+│   ├── 📁 dashboard/               # ⭐ Main dashboard
+│   │   └── 📄 page.tsx             # Forecast & safe-to-spend
+│   │
+│   ├── 📁 what-if/                 # Scenario simulator
+│   │   └── 📄 page.tsx             # Test hypothetical purchases
+│   │
+│   ├── 📁 goals/                   # Goals tracker
+│   │   └── 📄 page.tsx             # Track savings goals
+│   │
+│   ├── 📁 expenses/                # ⭐ Expense management
+│   │   └── 📄 page.tsx             # Add/edit/delete expenses
+│   │
+│   ├── 📁 income/                  # ⭐ Income management
+│   │   └── 📄 page.tsx             # Edit salary & balance
+│   │
+│   └── 📁 recommendations/         # ⭐ Financial recommendations
+│       └── 📄 page.tsx             # Smart allocation suggestions
+│
+├── 📁 components/                  # Reusable UI components
+│   └── 📁 ui/
+│       ├── 📄 Button.tsx           # Button component
+│       ├── 📄 Card.tsx             # Card component
+│       └── 📄 Input.tsx            # Input component
+│
+├── 📁 lib/                         # ⭐ Core business logic
+│   ├── 📄 forecast.ts              # 🧠 Forecasting engine
+│   ├── 📄 payday.ts                # 📅 Philippine payday logic
+│   ├── 📄 recommendations.ts       # 💡 Financial recommendations
+│   ├── 📄 supabase.ts              # Supabase client
+│   ├── 📄 auth.ts                  # Auth utilities
+│   └── 📄 currency.ts              # PHP formatting
+│
+└── 📁 types/                       # TypeScript types
+    └── 📄 database.ts              # Supabase DB types
+
+
+KEY FILES
+=========
+
+🧠 CORE LOGIC (Most Important)
+├── lib/forecast.ts         → Cash flow forecasting engine
+├── lib/payday.ts          → 15/30 cutoff calculation
+└── supabase-schema.sql    → Database schema with RLS
+
+🎨 USER INTERFACE
+├── app/dashboard/page.tsx  → Main screen (forecast display)
+├── app/setup/page.tsx      → Onboarding flow
+└── app/what-if/page.tsx    → Scenario simulator
+
+🔧 CONFIGURATION
+├── package.json            → Dependencies
+├── .env.local             → Environment variables (create this!)
+└── tsconfig.json          → TypeScript settings
+
+📚 DOCUMENTATION
+├── QUICKSTART.md          → Start here for local dev
+├── DEPLOYMENT.md          → Deploy to production
+└── BUILD_SUMMARY.md       → What was built
+
+
+DATABASE TABLES (Supabase)
+===========================
+
+accounts    → User bank accounts & balances
+incomes     → Salary & pay schedule (15/30)
+expenses    → Fixed bills & due dates
+goals       → Savings goals & progress
+
+All tables have Row Level Security (RLS) enabled.
+
+
+GETTING STARTED
+===============
+
+1. npm install
+2. Create Supabase project
+3. Run supabase-schema.sql
+4. Create .env.local with Supabase credentials
+5. npm run dev
+6. Visit http://localhost:3000
+
+See QUICKSTART.md for detailed instructions.
+
+
+DEPLOYMENT
+==========
+
+1. Push to GitHub
+2. Deploy to Vercel
+3. Add environment variables
+4. Configure Supabase Auth URLs
+
+See DEPLOYMENT.md for detailed instructions.
+
+
+TECH STACK
+==========
+
+Frontend:     Next.js 14 (App Router)
+Language:     TypeScript
+Styling:      Tailwind CSS
+Database:     Supabase (PostgreSQL)
+Auth:         Supabase Auth
+Hosting:      Vercel
+
+
+FEATURES
+========
+
+✅ User authentication (email/password)
+✅ Onboarding flow (income, expenses, goals)
+✅ Cash flow forecasting (day-by-day simulation)
+✅ Safe-to-spend calculation
+✅ What-if scenarios (test purchases)
+✅ Goals tracking (emergency fund)
+✅ Philippine 15/30 cutoff support
+✅ Row Level Security (data isolation)
+✅ Responsive mobile design
+✅ Production ready
+
+
+STATUS: ✅ COMPLETE & READY TO DEPLOY
+=====================================
+

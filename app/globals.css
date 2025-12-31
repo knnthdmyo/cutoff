@@ -1,0 +1,11 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Utility classes */
+@layer utilities {
+  .currency {
+    font-variant-numeric: tabular-nums;
+  }
+}
+
